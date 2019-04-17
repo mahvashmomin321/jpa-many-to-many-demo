@@ -23,6 +23,14 @@ public class EmployeeServiceImp implements EmployeeService {
 		 
 	}
 
+
+	@Override
+	public Employee findByEmployeeId(int id) {
+		
+		Employee employee=dao.findById(id).get();
+		return employee;
+	}
+
 	
 	
 }

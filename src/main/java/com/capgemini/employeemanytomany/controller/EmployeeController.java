@@ -20,17 +20,31 @@ public class EmployeeController {
 	@RequestMapping("/add")
 	public Set<Employee> addEmp(){
 		
-		Set<Project> projects = new HashSet<Project>();
-		projects.add(new Project(1, "abc"));
-		projects.add(new Project(2, "cde"));
+		Set<Project> projects1 = new HashSet<Project>();
+		
+		projects1.add( new Project(1, ".net"));
+		projects1.add( new Project(2, "java"));
+		
+		Set<Project> projects2= new HashSet<Project>();
+		
+		projects2.add( new Project(1, ".net"));
+		projects2.add( new Project(3, "networking"));
 		
 		Set<Employee> employees = new HashSet<Employee>(); 
 		
-	employees.add( new Employee(101, "Mahi", projects));
-	employees.add(new Employee(102, "Akashta", projects));
+	employees.add( new Employee(101, "Mahi", projects1));
+	employees.add(new Employee(102, "Akashta", projects2));
 	
 	service.addNew(employees);
 		return employees;
+	}
+	
+	@RequestMapping("/find")
+	public Employee findEmployee(){
+		Employee employees= service.findByEmployeeId(101);
+		
+		return employees;
+		
 	}
 	
 }
